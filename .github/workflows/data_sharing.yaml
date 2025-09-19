@@ -1,6 +1,5 @@
 name: data sharing
 
-
 on:
   workflow_dispatch:
 
@@ -8,20 +7,22 @@ on:
     branches:
       - main
 
-
 jobs:
   upload-file-sharing:
     runs-on: ubuntu-latest
     steps:
+      - name: Create output.txt
+        run: echo "This is some output data" > output.txt
+
       - name: Upload output files
         uses: actions/upload-artifact@v4
         with:
           name: output-files
+          path: output.txt
       
   download-file-sharing:
     runs-on: ubuntu-latest
     needs: upload-file-sharing
-
     steps:
       - name: Download output files
         uses: actions/download-artifact@v4
