@@ -1,0 +1,32 @@
+name: data sharing
+
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+
+
+jobs:
+  upload-file-sharing:
+      
+      - name: Upload output files
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-files
+          path: output.txt
+      
+  download-file-sharing:
+      runs-on: ubuntu-latest
+      needs: upload-file-sharing
+
+      steps:
+      - name: Download output files
+        uses: actions/download-artifact@v3
+        with:
+          name: output-files
+
+      - name: Display the content of output.txt
+        run: cat output.txt || echo "output.txt not found"
