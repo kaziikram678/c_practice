@@ -1,0 +1,27 @@
+name: concurrency control
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: my_concurrent_group
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Print Message if branch is main
+        if: github.ref == 'refs/heads/main'
+        run: echo "This is the main branch."
+
+
