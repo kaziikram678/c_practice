@@ -17,7 +17,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: output-files
-          path: output.txt
       
   download-file-sharing:
     runs-on: ubuntu-latest
