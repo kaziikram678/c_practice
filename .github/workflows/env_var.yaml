@@ -15,5 +15,6 @@ jobs:
         run: echo "Hello, World!"
       
       - name: fetch github secret
-        run: echo "The secret is ${{ secrets.REPO_SECRET }}"
-        run: echo "The secret is ${{ vars.REPO_VAR }}"
+        run: |
+          echo "The secret is ${{ secrets.REPO_SECRET }}"
+          echo "The secret is ${{ vars.REPO_VAR }}"
