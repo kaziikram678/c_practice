@@ -11,6 +11,7 @@ on:
 
 jobs:
   upload-file-sharing:
+    runs-on: ubuntu-latest
     steps:
       - name: Upload output files
         uses: actions/upload-artifact@v3
