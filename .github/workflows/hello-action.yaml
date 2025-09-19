@@ -2,7 +2,7 @@ name: Hello World
 
 on:
   workflow_dispatch:
-  
+
   push:
     branches:
       - main
@@ -13,3 +13,12 @@ jobs:
     steps:
       - name: Run a one line script
         run: echo "Hello, World!"
+
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Display files
+        run: ls -la
