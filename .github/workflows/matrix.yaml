@@ -1,0 +1,23 @@
+name: matrix 
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+
+jobs:
+  matrix_example:
+    strategy:
+      matrix:
+        node: [14,16,18]
+
+    steps:
+      - name: Setup Node.js ${{ matrix.node-version}}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Check Node.js version
+        run: node -v
