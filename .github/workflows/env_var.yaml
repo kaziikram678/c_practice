@@ -1,4 +1,4 @@
-name: Hello World
+name: env secret and var
 
 on:
   workflow_dispatch:
