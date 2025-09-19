@@ -10,8 +10,8 @@ on:
 
 
 jobs:
-  upload-file-sharing:
-      
+  if_example:
+    steps:
       - name: Upload output files
         uses: actions/upload-artifact@v3
         with:
@@ -19,10 +19,9 @@ jobs:
           path: output.txt
       
   download-file-sharing:
-      runs-on: ubuntu-latest
-      needs: upload-file-sharing
+    runs-on: ubuntu-latest
 
-      steps:
+    steps:
       - name: Download output files
         uses: actions/download-artifact@v3
         with:
