@@ -9,6 +9,9 @@ on:
 
 jobs:
   matrix_example:
+
+    runs-on: ubuntu-latest
+    
     strategy:
       matrix:
         node: [14,16,18]
